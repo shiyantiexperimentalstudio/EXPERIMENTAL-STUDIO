@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>個人網頁版型展示 - 實驗體工作室</title>
+    <!-- 連結外部 CSS 檔案 -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- 導覽列（固定在最上方） -->
+    <header class="navbar">
+        <div class="logo">實驗體工作室 EXPERIMENTAL STUDIO</div>
+        <nav class="nav-links">
+            <a href="#hero" class="nav-btn active">首頁</a>
+            <a href="#about" class="nav-btn">關於我們</a>
+            <a href="#portfolio" class="nav-btn">成品預覽</a>
+            <a href="#services" class="nav-btn">服務項目</a>
+            <a href="#contact" class="nav-btn">聯絡我們</a>
+        </nav>
+    </header>
+
+    <!-- 滾動容器 -->
+    <div class="scroll-container" id="main-container">
+
+        <!-- 頁面 1：主視覺首頁（大圖極致放大 + 文字死死扣在最網頁底部） -->
+        <section id="hero" class="page-section hero-absolute-layout">
+            
+            <!-- 中間：巨型獨立大圖輪播區域 -->
+            <div class="carousel-container-b">
+                <!-- 左切換鍵 -->
+                <button class="carousel-btn-b prev-btn-b">❮</button>
+                
+                <!-- 輪播圖片視窗 -->
+                <div class="carousel-wrapper-b">
+                    <div class="carousel-slide-b">
+                        <!-- 🌟 已精準帶入您的兩張高解析作品展示圖 -->
+                        <img src="image_3b9c8fb1.jpg" alt="科技展示 1" class="carousel-img-b">
+                        <img src="image_b989a446.jpg" alt="科技展示 2" class="carousel-img-b">
+                    </div>
+                </div>
+                
+                <!-- 右切換鍵 -->
+                <button class="carousel-btn-b next-btn-b">❯</button>
+            </div>
+
+            <!-- 最下方：死死固定在整個網頁底部的文字 -->
+            <div class="hero-footer-text-b">
+                <h1>打造專屬的網頁版型</h1>
+                <p>高品質、現代化的前端網頁設計，助力您的品牌發光發熱。</p>
+            </div>
+
+        </section>
+
+        <!-- 頁面 2：關於我們 -->
+        <section id="about" class="page-section">
+            <div class="glass-card page-card">
+                <h2>關於我們</h2>
+                <div class="card-line"></div>
+                <p class="section-p">
+                    我們是 EXPERIMENTAL STUDIO 實驗體網頁工作室。專注於打造兼具「極致視覺」與「流暢體驗」的前端網頁版型。我們相信每一個網頁都是一場視覺實驗，透過程式碼將創意化為現實。
+                </p>
+                <div class="solo-notice">
+                    <span>💡</span> 
+                    <strong>獨立開發者聲明：</strong>
+                    本工作室由獨立工程師全權負責。為了堅持代碼品質與極致，我們採「精緻手工、高客製化」的開發模式。如遇案件較多時需依序排隊，謝謝您的耐心期待。
+                </div>
+            </div>
+        </section>
+
+        <!-- 頁面 3：成品預覽（價格調整版） -->
+        <section id="portfolio" class="page-section portfolio-section">
+            <div class="portfolio-scroll-box">
+                <h2 class="section-title">精選網頁版型</h2>
+                <div class="card-line"></div>
+                
+                <!-- 區塊 A -->
+                <div class="category-block">
+                    <div class="product-grid">
+                        <div class="product-card">
+                            <div class="badge">極簡現代</div>
+                            <h3>樣式 A：極簡白系企業官網</h3>
+                            <div class="tech-tags"><span>明亮風格</span><span>多頁跳轉</span></div>
+                            <p class="product-desc">乾淨明亮的白色基調，搭配流暢的轉場動畫，適合傳統企業轉型、顧問公司首選。</p>
+                            <div class="price">NT$ 1,500</div>
+                            <div class="card-buttons"><a href="#" class="demo-btn">線上預覽</a><a href="#contact" class="buy-btn">立即購買</a></div>
+                        </div>
+                        <div class="product-card featured">
+                            <div class="badge premium">熱銷推薦</div>
+                            <h3>樣式 B：暗黑霓虹科技官網</h3>
+                            <div class="tech-tags"><span class="glow">炫彩發光</span><span>前衛動態</span></div>
+                            <p class="product-desc">深色背景搭配科技感霓虹燈效，視覺衝擊力極強！最適合軟體公司、新創團隊品牌官網。</p>
+                            <div class="price">NT$ 1,500</div>
+                            <div class="card-buttons"><a href="#" class="demo-btn">線上預覽</a><a href="#contact" class="buy-btn">立即購買</a></div>
+                        </div>
+                        <div class="product-card">
+                            <div class="badge">商業實用</div>
+                            <h3>樣式 C：沉穩商務經典官網</h3>
+                            <div class="tech-tags"><span>經典藍調</span><span>數據圖表</span></div>
+                            <p class="product-desc">採用沉穩的經典藍與灰色調，內建服務項目、里程碑與團隊介紹，大型企業百搭首選。</p>
+                            <div class="price">NT$ 1,500</div>
+                            <div class="card-buttons"><a href="#" class="demo-btn">線上預覽</a><a href="#contact" class="buy-btn">立即購買</a></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 區塊 B -->
+                <div class="category-block" style="margin-top: 40px;">
+                    <div class="product-grid">
+                        <div class="product-card">
+                            <div class="badge">活動推廣</div>
+                            <h3>樣式 A：一頁式熱銷活動頁</h3>
+                            <div class="tech-tags"><span>倒數計時</span><span>強烈導購</span></div>
+                            <p class="product-desc">專為單一產品或活動設計，內建限時倒數計時器與搶眼購買鈕，適合促銷快速上線。</p>
+                            <div class="price">NT$ 1,000</div>
+                            <div class="card-buttons"><a href="#" class="demo-btn">線上預覽</a><a href="#contact" class="buy-btn">立即購買</a></div>
+                        </div>
+                        <div class="product-card featured">
+                            <div class="badge premium">熱銷推薦</div>
+                            <h3>樣式 B：極致磨砂玻璃官網 </h3>
+                            <div class="tech-tags"><span>微光暈</span><span>iOS質感</span></div>
+                            <p class="product-desc">全網頁採用高透光的磨砂玻璃結構，光影效果極佳。適合高端工作室、沙龍預約頁。</p>
+                            <div class="price">NT$ 1500</div>
+                            <div class="card-buttons"><a href="#" class="demo-btn">線上預覽</a><a href="#contact" class="buy-btn">立即購買</a></div>
+                        </div>
+                        <div class="product-card">
+                            <div class="badge">簡單快速</div>
+                            <h3>樣式 C：極簡名片型一頁網</h3>
+                            <div class="tech-tags"><span>純前端</span><span>超快載入</span></div>
+                            <p class="product-desc">極度精簡的網頁，專門擺放個人頭像、簡介與所有的社群連結，是最具質感的電子名片。</p>
+                            <div class="price">NT$ 1,000</div>
+                            <div class="card-buttons"><a href="#" class="demo-btn">線上預覽</a><a href="#contact" class="buy-btn">立即購買</a></div>
+                        </div>
+                    </div>
+                </div>
+
+                <p class="scroll-tip">━ 💡 以上為全部版型，點擊導列可切換至其他分頁 ━</p>
+            </div>
+        </section>
+
+        <!-- 頁面 4：服務項目 -->
+        <section id="services" class="page-section">
+            <div class="glass-card page-card">
+                <h2>服務項目</h2>
+                <div class="card-line"></div>
+                <ul class="services-list">
+                    <li><span>✨</span> 精選前端網頁版型販售</li>
+                    <li><span>💻</span> 客製化網站前端開發</li>
+                    <li><span>📱</span> RWD 響應式網頁設計 <small>(手機/平板/電腦完美適配)</small></li>
+                    <li><span>💬</span> 你想要的都可以跟我討論！</li>
+                </ul>
+                <div class="service-notice">
+                    ⚠️ 服務範圍僅包含網頁版型與前端代碼，不包含網域及主機租用費用。
+                </div>
+            </div>
+        </section>
+
+                <!-- 頁面 5：聯絡我們（完全對齊原圖 4 條資訊與版權宣告） -->
+        <section id="contact" class="page-section">
+            <div class="glass-card">
+                <h2>聯絡我們</h2>
+                <div class="card-line"></div>
+                
+                <!-- 1. LINE -->
+                <div class="info-group-b">
+                    <p class="info-label-b">LINE ID</p>
+                    <p class="info-value-b">cyakura_</p>
+                </div>
+
+                <!-- 2. EMAIL -->
+                <div class="info-group-b">
+                    <p class="info-label-b">EMAIL</p>
+                    <p class="info-value-b"><a href="mailto:cyakura764334@gmail.com">cyakura764334@gmail.com</a></p>
+                </div>
+
+                <!-- 3. 服務時間 -->
+                <div class="info-group-b">
+                    <p class="info-label-b">服務時間</p>
+                    <p class="info-value-b">週一至週五 18:00 - 24:00</p>
+                </div>
+
+                <!-- 4. 回覆承諾 -->
+                <div class="info-group-b">
+                    <p class="info-label-b">回覆承諾</p>
+                    <p class="info-value-b">收到信件後將於 24 小時內儘速回覆</p>
+                </div>
+
+                <!-- 底部版權宣告（Footer） -->
+                <footer class="contact-footer">
+                    &copy; 2026 EXPERIMENTAL STUDIO 實驗體工作室 版權所有
+                </footer>
+            </div>
+        </section>
+
+
+    </div> <!-- 滾動容器結尾 -->
+
+    <!-- 🌟 核心修正：將功能完美包覆在 <script> 標籤內，並放到全網頁的最底部 -->
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const slide = document.querySelector('.carousel-slide-b');
+        const images = document.querySelectorAll('.carousel-img-b');
+        const prevBtn = document.querySelector('.prev-btn-b');
+        const nextBtn = document.querySelector('.next-btn-b');
+
+        // 如果找不到核心元素，就在控制台印出通知
+        if (!slide || images.length === 0 || !prevBtn || !nextBtn) {
+            console.log("正在載入頁面元件...");
+            return;
+        }
+
+        let currentIndex = 0;
+        const totalImages = images.length;
+
+        // 計算並執行滑動
+        function updateCarousel() {
+            // 每張圖在 CSS 裡佔總寬度 200% 的一半 (50%)
+            const movePercentage = currentIndex * 50;
+            slide.style.transform = `translateX(-${movePercentage}%)`;
+        }
+
+        // 下一張按鈕
+        nextBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            if (currentIndex < totalImages - 1) {
+                currentIndex++;
+            } else {
+                currentIndex = 0; // 循環彈回第一張
+            }
+            updateCarousel();
+        });
+
+        // 上一張按鈕
+        prevBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            if (currentIndex > 0) {
+                currentIndex--;
+            } else {
+                currentIndex = totalImages - 1; // 循環跳到最後一張
+            }
+            updateCarousel();
+        });
+
+        // 初始對齊
+        updateCarousel();
+    });
+    </script>
+
+</body>
+</html>
+/* ==========================================
+   5. 聯絡我們專屬樣式（徹底修復・傳統區塊百分之百靠左版）
+   ========================================== */
+#contact .glass-card {
+    margin: 0 auto !important;     /* 確保卡片在螢幕正中央 */
+    padding: 50px 45px 35px 45px;  /* 調整卡片內邊距，更像原圖比例 */
+    display: block !important;     /* 強制卡片本身是傳統區塊 */
+}
+
+#contact .glass-card h2 {
+    text-align: center !important; /* 卡片大標題「聯絡我們」維持置中 */
+    letter-spacing: 4px;
+    color: #ffffff;
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+#contact .card-line {
+    margin: 0 auto 40px auto !important; /* 標題下方的裝飾短線維持置中 */
+}
+
+/* 聯絡資訊條：改用最單純的 block，徹底斷絕所有左右推擠的 FlexBug */
+.info-group-b {
+    display: block !important;     /* 🌟 核心修正：改成純區塊，文字絕對只會從最左邊開始排 */
+    width: 100% !important;        /* 🌟 核心修正：寬度強制撐滿 100%，絕不縮水跑去右邊 */
+    margin-bottom: 25px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08); /* 淡淡的橫向分隔線 */
+    padding-bottom: 18px;          /* 留出舒服的分隔距離 */
+    text-align: left !important;   /* 🌟 核心修正：強制整塊區塊內部往左靠 */
+}
+
+/* 最後一個項目不要底部橫線 */
+.info-group-b:last-of-type {
+    border-bottom: none;
+    margin-bottom: 30px; 
+}
+
+/* 英文小標籤（LINE ID, EMAIL, 服務時間...） */
+.info-label-b {
+    display: block !important;     /* 強制換行 */
+    font-size: 11px;
+    color: rgba(255, 255, 255, 0.5) !important; /* 優雅的半透明灰白 */
+    font-weight: 700;
+    letter-spacing: 1.5px;    
+    margin-bottom: 6px;
+    text-align: left !important;   /* 🌟 百分之百靠左 */
+}
+
+/* 實際資料文字（cyakura_, 週一至週五...） */
+.info-value-b {
+    display: block !important;     /* 強制換行 */
+    font-size: 17px;
+    color: #ffffff !important;     /* 主要資料字體為純白 */
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    text-align: left !important;   /* 🌟 百分之百靠左 */
+}
+
+/* 🌟 核心修復：徹底消滅看不清楚的傳統深藍色 EMAIL 連結，改成亮眼的科技藍白 */
+.info-value-b a {
+    color: #b3f0ff !important;     /* 🌟 改用跟您的裝飾線一樣亮眼的霓虹藍 */
+    text-decoration: none !important; /* 拔掉醜醜的下底線 */
+    transition: all 0.2s ease;
+    display: inline-block;
+}
+
+.info-value-b a:hover {
+    color: #ffffff !important;     /* 滑鼠滑過去變純白 */
+    text-shadow: 0 0 8px #b3f0ff;  /* 帶有微弱的霓虹發光 */
+}
+
+/* 最下方的 2026 版權宣告文字 */
+.contact-footer {
+    display: block !important;
+    width: 100%;
+    text-align: center !important; /* 只有版權宣告需要置中 */
+    font-size: 11px;
+    color: rgba(255, 255, 255, 0.35); 
+    letter-spacing: 1px;
+    margin-top: 15px;
+}
+

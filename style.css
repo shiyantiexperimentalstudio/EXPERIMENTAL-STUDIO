@@ -1,0 +1,593 @@
+/* ==========================================
+   1. 基礎重設與全域設定
+   ========================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* 🌟 全面改用現代無襯線黑體 */
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang TC", "Noto Sans CJK TC", "Source Han Sans TC", "Microsoft JhengHei", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+html, body {
+    height: 100%;
+    overflow: hidden; /* 徹底鎖死瀏覽器自帶的滾動條 */
+}
+
+body {
+    background-image: url('background.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+/* 🌟 滾動容器：隱藏溢出，讓滑鼠滾輪徹底失效 */
+.scroll-container {
+    height: 100vh;
+    overflow: hidden;
+    scroll-behavior: smooth;
+}
+
+/* ==========================================
+   2. 頂部導覽列 (Navbar)
+   ========================================== */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
+    background-color: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.logo {
+    color: #ffffff;
+    font-size: 24px;
+    font-weight: 700;       
+    letter-spacing: 3px;    
+}
+
+.nav-links a {
+    color: rgba(255, 255, 255, 0.6);
+    text-decoration: none;
+    margin-left: 30px;
+    font-size: 15px;        
+    font-weight: 400;
+    letter-spacing: 1px;    
+    transition: all 0.3s ease;
+    padding-bottom: 5px;
+    border-bottom: 2px solid transparent;
+}
+
+.nav-links a:hover {
+    color: #b3f0ff; 
+}
+
+/* 當前點選的分頁底線高亮 */
+.nav-links a.active {
+    color: #ffffff;
+    font-weight: 700;       
+    border-bottom: 2px solid #b3f0ff;
+    text-shadow: 0 0 8px rgba(179, 240, 255, 0.5); 
+}
+
+/* ==========================================
+   3. 獨立分頁基礎佈局
+   ========================================== */
+.page-section {
+    height: 100vh; /* 強制每一頁剛好等於螢幕高 */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 100px 20px 40px 20px;
+    overflow: hidden; /* 防止內部元件隨意長大撐開頁面 */
+}
+
+/* 通用磨砂玻璃大卡片 */
+.glass-card {
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 20px;
+    padding: 40px;
+    width: 100%;
+    max-width: 550px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    color: #ffffff;
+    text-align: left;
+}
+
+.page-card {
+    max-width: 650px;
+}
+
+.glass-card h2 {
+    font-size: 28px;
+    font-weight: 700;       
+    text-align: center;
+    letter-spacing: 3px;    
+    margin-bottom: 10px;
+}
+
+/* 卡片下方裝飾短線 */
+.card-line {
+    width: 50px;
+    height: 3px;
+    background-color: #b3f0ff;
+    margin: 0 auto 30px auto;
+    border-radius: 2px;
+}
+
+.section-p {
+    font-size: 15px;        
+    line-height: 1.8;
+    color: #f0f8ff;
+    text-align: justify;
+}
+
+/* ==========================================
+   4. 各分頁專屬細節樣式
+   ========================================== */
+
+/* --- 🌟 頁面 1：首頁・極致大圖 + 文字死死固定最底部 --- */
+.neon-carousel-layout {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* 改由上往下排列，靠 margin 推開 */
+    align-items: center;
+    height: 100% !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 90px 0 20px 0 !important; /* 頂部空出導覽列高度 */
+    position: relative;
+}
+
+/* 🌟 核心優化：讓中間大圖區塊變得超級大張 */
+.carousel-container-b {
+    position: relative;
+    width: 90vw;           /* 大幅拉寬圖片比例至螢幕 90% */
+    max-width: 1300px;     /* 限制桌機最大寬度 */
+    height: 62vh;          /* 強制高度佔滿螢幕 62%，讓圖片超級大張 */
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.6);
+    margin-top: 10px;      /* 緊貼上方導覽列下方 */
+}
+
+.carousel-wrapper-b {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.carousel-slide-b {
+    display: flex;
+    width: 200%; 
+    height: 100%;
+    transition: transform 0.5s ease-in-out; /* 🌟 加上這行，切換時才會滑動 */
+}
+.carousel-img-b {
+    width: 50%; 
+    height: 100%;
+    object-fit: cover;     /* 確保圖片大張且不變形 */
+}
+
+/* 輪播左右按鈕 */
+.carousel-btn-b {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: white;
+    padding: 14px 18px;
+    cursor: pointer;
+    border-radius: 50%;
+    font-size: 18px;
+    z-index: 10;
+    transition: all 0.2s ease;
+}
+
+.carousel-btn-b:hover {
+    background: #ffffff;
+    color: #000000;
+}
+
+.prev-btn-b { left: 25px; }
+.next-btn-b { right: 25px; }
+
+/* 🌟 核心修正：文字外框利用 margin-top: auto 死死壓在最底部中間 */
+.hero-footer-text-b {
+    width: 100%;
+    margin-top: auto;      /* 關鍵：強制把文字推到整個網頁的最底端 */
+    padding-bottom: 15px;  /* 離網頁最底部的安全距離 */
+    text-align: center;
+}
+
+.hero-footer-text-b h1 {
+    color: #ffffff;
+    font-size: 46px;        
+    font-weight: 700;
+    letter-spacing: 6px;    
+    margin-bottom: 8px;
+    text-shadow: 0 0 12px rgba(168, 85, 247, 0.5), 0 0 25px rgba(59, 130, 246, 0.3);
+}
+
+.hero-footer-text-b p {
+    color: #e2e8f0;        
+    font-size: 18px;
+    font-weight: 300;       
+    letter-spacing: 2px;    
+}
+
+/* --- 頁面 2：關於我們 匠人聲明 --- */
+.solo-notice {
+    margin-top: 25px;
+    padding: 15px 20px;
+    background: rgba(179, 240, 255, 0.05);
+    border-left: 4px solid #b3f0ff;
+    border-radius: 0 10px 10px 0;
+    color: #e0f7ff;
+    font-size: 14px;
+    line-height: 1.6;
+    text-align: justify;
+}
+
+.solo-notice strong {
+    color: #b3f0ff;
+    font-weight: 700;
+    display: inline-block;
+    margin-bottom: 3px;
+}
+
+/* --- 頁面 3：成品預覽與按鈕等寬防歪修正 --- */
+.portfolio-section {
+    padding: 90px 0 0 0; 
+    height: 100vh;       
+    overflow: hidden;    
+}
+
+.portfolio-scroll-box {
+    width: 100%;
+    height: calc(100vh - 90px); 
+    max-height: 100%;           
+    overflow-y: auto;           
+    padding: 20px 20px 80px 20px;
+    scrollbar-width: none;       
+}
+.portfolio-scroll-box::-webkit-scrollbar {
+    display: none;              
+}
+
+.portfolio-container {
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.section-title {
+    color: #ffffff;
+    font-size: 32px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    margin-bottom: 10px;
+}
+
+.category-block {
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto 50px auto; 
+    text-align: left;
+}
+
+.product-grid {
+    display: flex;
+    gap: 25px;
+    width: 100%;
+    justify-content: flex-start;
+}
+
+.product-card {
+    background: rgba(255, 255, 255, 0.06);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 20px;
+    padding: 35px 25px;
+    flex: 1;
+    max-width: 350px;
+    color: #ffffff;
+    text-align: center;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 410px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.product-card.featured {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(179, 240, 255, 0.4);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
+}
+
+.product-card:hover {
+    transform: translateY(-6px);
+    border-color: rgba(179, 240, 255, 0.6);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+}
+
+.badge {
+    position: absolute;
+    top: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 11px;
+    font-weight: 500;
+    padding: 4px 15px;
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 20px;
+    letter-spacing: 1px;
+    color: #e0f7ff;
+}
+
+.badge.premium {
+    background: #b3f0ff;
+    color: #004455;
+    font-weight: bold;
+}
+
+.product-card h3 {
+    font-size: 19px;
+    font-weight: 700;
+    margin-top: 15px;
+    margin-bottom: 12px;
+    color: #ffffff;
+}
+
+.tech-tags {
+    display: flex;
+    gap: 6px;
+    justify-content: center;
+    margin-bottom: 15px;
+    flex-wrap: wrap;
+}
+
+.tech-tags span {
+    font-size: 11px;
+    padding: 2px 8px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 4px;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.product-desc {
+    font-size: 13px;        
+    color: #d0e8ff;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    text-align: justify;
+}
+
+.price {
+    font-size: 24px;
+    font-weight: 700;
+    color: #b3f0ff;
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+}
+
+/* 按鈕框彈性佈局 */
+.card-buttons {
+    display: flex;
+    gap: 12px;
+    width: 100%;
+    margin-top: auto;
+    box-sizing: border-box;
+}
+
+.demo-btn {
+    flex: 1;
+    width: 50%;
+    padding: 10px 0;
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 25px;
+    font-weight: 700;
+    font-size: 14px;
+    text-align: center;
+    transition: all 0.2s ease;
+    box-sizing: border-box;
+}
+
+.demo-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: #ffffff;
+}
+
+.buy-btn {
+    display: block;
+    flex: 1;
+    width: 50%;
+    padding: 10px 0;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 25px;
+    font-weight: 700;
+    font-size: 14px;
+    text-align: center;
+    transition: all 0.2s ease;
+    box-sizing: border-box;
+}
+
+.product-card:hover .buy-btn {
+    background: #ffffff;
+    color: #006688;
+    border-color: #ffffff;
+}
+
+.product-card.featured .buy-btn {
+    background: #b3f0ff;
+    color: #004455;
+    border-color: #b3f0ff;
+}
+
+.scroll-tip {
+    font-size: 13px;
+    color: #b3f0ff;
+    margin-top: 20px;
+    text-align: center;
+}
+
+/* --- 頁面 4：服務項目樣式完整補齊 --- */
+.services-list {
+    list-style: none;
+    margin-bottom: 25px;
+}
+
+.services-list li {
+    font-size: 16px;
+    color: #f0f8ff;
+    margin-bottom: 14px;
+display: flex;
+align-items: center;
+gap: 10px;
+text-align: left;
+}
+.services-list li small {
+font-size: 12px;
+color: #b3f0ff;
+}
+.service-notice {
+margin-top: 20px;
+font-size: 13px;
+color: rgba(255, 255, 255, 0.6);
+border-top: 1px solid rgba(255, 255, 255, 0.1);
+padding-top: 15px;
+text-align: left;
+}
+/* ==========================================
+5. 聯絡我們專屬樣式（完全與首頁隔離，絕不跑版）
+========================================== */
+.info-group-b {
+margin-bottom: 20px;
+width: 100%;
+display: flex;
+justify-content: space-between;
+align-items: center;
+border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+padding-bottom: 10px;
+}
+.info-label-b {
+font-size: 14px;
+color: rgba(255, 255, 255, 0.5);
+font-weight: 500;
+}
+.info-value-b {
+font-size: 18px;
+color: #b3f0ff;
+font-weight: 700;
+letter-spacing: 1px;
+}
+
+/* ==========================================
+   5. 聯絡我們專屬樣式（徹底修復・傳統區塊百分之百靠左版）
+   ========================================== */
+#contact .glass-card {
+    margin: 0 auto !important;     /* 確保卡片在螢幕正中央 */
+    padding: 50px 45px 35px 45px;  /* 調整卡片內邊距，更像原圖比例 */
+    display: block !important;     /* 強制卡片本身是傳統區塊 */
+}
+
+#contact .glass-card h2 {
+    text-align: center !important; /* 卡片大標題「聯絡我們」維持置中 */
+    letter-spacing: 4px;
+    color: #ffffff;
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+#contact .card-line {
+    margin: 0 auto 40px auto !important; /* 標題下方的裝飾短線維持置中 */
+}
+
+/* 聯絡資訊條：改用最單純的 block，徹底斷絕所有左右推擠的 FlexBug */
+.info-group-b {
+    display: block !important;     /* 🌟 核心修正：改成純區塊，文字絕對只會從最左邊開始排 */
+    width: 100% !important;        /* 🌟 核心修正：寬度強制撐滿 100%，絕不縮水跑去右邊 */
+    margin-bottom: 25px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08); /* 淡淡的橫向分隔線 */
+    padding-bottom: 18px;          /* 留出舒服的分隔距離 */
+    text-align: left !important;   /* 🌟 核心修正：強制整塊區塊內部往左靠 */
+}
+
+/* 最後一個項目不要底部橫線 */
+.info-group-b:last-of-type {
+    border-bottom: none;
+    margin-bottom: 30px; 
+}
+
+/* 英文小標籤（LINE ID, EMAIL, 服務時間...） */
+.info-label-b {
+    display: block !important;     /* 強制換行 */
+    font-size: 11px;
+    color: rgba(255, 255, 255, 0.5) !important; /* 優雅的半透明灰白 */
+    font-weight: 700;
+    letter-spacing: 1.5px;    
+    margin-bottom: 6px;
+    text-align: left !important;   /* 🌟 百分之百靠左 */
+}
+
+/* 實際資料文字（cyakura_, 週一至週五...） */
+.info-value-b {
+    display: block !important;     /* 強制換行 */
+    font-size: 17px;
+    color: #ffffff !important;     /* 主要資料字體為純白 */
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    text-align: left !important;   /* 🌟 百分之百靠左 */
+}
+
+/* 🌟 核心修復：徹底消滅看不清楚的傳統深藍色 EMAIL 連結，改成亮眼的科技藍白 */
+.info-value-b a {
+    color: #b3f0ff !important;     /* 🌟 改用跟您的裝飾線一樣亮眼的霓虹藍 */
+    text-decoration: none !important; /* 拔掉醜醜的下底線 */
+    transition: all 0.2s ease;
+    display: inline-block;
+}
+
+.info-value-b a:hover {
+    color: #ffffff !important;     /* 滑鼠滑過去變純白 */
+    text-shadow: 0 0 8px #b3f0ff;  /* 帶有微弱的霓虹發光 */
+}
+
+/* 最下方的 2026 版權宣告文字 */
+.contact-footer {
+    display: block !important;
+    width: 100%;
+    text-align: center !important; /* 只有版權宣告需要置中 */
+    font-size: 11px;
+    color: rgba(255, 255, 255, 0.35); 
+    letter-spacing: 1px;
+    margin-top: 15px;
+}
