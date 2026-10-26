@@ -331,4 +331,18 @@
     letter-spacing: 1px;
     margin-top: 15px;
 }
+<!-- 🌟 專為 index.html 一頁式滾動設計的智慧光線控制 🌟 -->
+<script>
+ document.querySelectorAll('.nav-links a').forEach(btn => {
+ btn.addEventListener('click', function(e) {
+ // 如果點擊的是本頁的錨點（開頭是 # 的連結）
+ if (this.getAttribute('href').startsWith('#')) {
+ // 1. 先把所有人身上的 active 拔掉，讓首頁的線熄滅
+ document.querySelectorAll('.nav-links a').forEach(b => b.classList.remove('active'));
+ // 2. 只把 active 加在目前點擊的這分頁上，讓它發光
+ this.classList.add('active');
+ }
+ });
+ });
+</script>
 
